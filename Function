@@ -1,0 +1,20 @@
+# module : a Python file that has something with a .py extension to it that's a collection of Python definitions of statements.
+# Use circle module as an example
+
+import circle
+print (circle.pi)
+# This means you are pulling out the value pi defined in circle module. If you find typing "circle + ." is troublesome, you can use another way to import
+
+from circle import *
+#This means you imported everything from circle and now you can simply type print(pi) to get the same result as above.
+
+#file
+#可參考這個  https://www.guru99.com/reading-and-writing-files-in-python.html
+file_object  = open("filename", "mode") 
+
+"filename" could be a relative direction, or file type( could be filename.txt); 
+"mode" is the way you want to open the file, 
+ex: 
+w : write mode ( new create or truncate the original one)
+r : read mode ( can only read)
+t : default mode (text)
