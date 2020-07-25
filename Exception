@@ -1,0 +1,17 @@
+#Error type
+#TypeError vs ValueError
+#TypeError : raised when an operation or function is applied to an object of inappropriate type. 
+#For example: len(5) a[2.5]
+#ValueError : raised when an operation or function receives an argument that has the right type but an inappropriate value, and the situation is not described by a more precise exception such as IndexError.
+# b=int('Apple') , for this one 'Apple' is str but not a valid literal.
+
+#Try-Except-Else (when no except occured)-Finally (clean up the code, would be executed no matter what)
+#
+
+
+#input check, use "assert", it could stop the process immediately
+>>> def avg(grades):
+>>>   assert not len(grades) == 0, 'no grades data'
+
+# , 'str' means that it would print out 'no grades data' it the assert condition met.
+>>>   return sum(grades)/len(grades)
