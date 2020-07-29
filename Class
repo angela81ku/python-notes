@@ -1,0 +1,16 @@
+# class structure
+# class : we use the reserved word class
+# Class_name: we create a name for the class, Class names should normally use the CapWords convention. Forinstance: HoneyBee.
+# naming reference: https://www.python.org/dev/peps/pep-0008/#class-names
+# """ Docstrings """: Describe how to use this class
+# __init__(self,attr1,attr2....):  is a reserved method in python classes. It is known as a constructor in object oriented concepts. This method called when an object is created from the class and it allow the class to initialize the attributes of a class.
+# self: self represents the instance of the class. By using the "self" keyword we can access the attributes and methods of the class in python.
+# self.nheight = height : actually, it can be written as "self.height = height", the nheight is just a name of this attribute, you can name it self.height as well.
+class HumanNature:
+    """
+    Docstrings
+    """
+    def __init__(self, height , weight):
+        self.nheight = height
+        self.weight = weight
+      
