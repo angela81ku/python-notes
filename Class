@@ -1,16 +1,38 @@
 # class structure
 # class : we use the reserved word class
-# Class_name: we create a name for the class, Class names should normally use the CapWords convention. Forinstance: HoneyBee.
-# naming reference: https://www.python.org/dev/peps/pep-0008/#class-names
-# """ Docstrings """: Describe how to use this class
-# __init__(self,attr1,attr2....):  is a reserved method in python classes. It is known as a constructor in object oriented concepts. This method called when an object is created from the class and it allow the class to initialize the attributes of a class.
-# self: self represents the instance of the class. By using the "self" keyword we can access the attributes and methods of the class in python.
+# HumanNature : we create a name for the class, Class names should normally use the CapWords convention. Forinstance: HoneyBee. 
+# HumanNature(object) : HumanNature is under the parent object, but in python 3 it is set by default and we don't need this anymore.
+# """ Docstrings """ : Describe how to use this class
+# __init__(self,attr1,attr2....) :  is a reserved method in python classes. It is known as a constructor in object oriented concepts. This method called when an object is created from the class and it allow the class to initialize the attributes of a class.
+# self : self represents the instance of the class. By using the "self" keyword we can access the attributes and methods of the class in python.
 # self.nheight = height : actually, it can be written as "self.height = height", the nheight is just a name of this attribute, you can name it self.height as well.
+# get session : means you can get the input data
+# set seesion : means you can change the input data
+# __str__(self) : it's a dunder method or special methods, which means that you can apply certain the built-in function in your class. If you don't use this you can't print out the instance as you might imagine.
+
+# naming reference : https://www.python.org/dev/peps/pep-0008/#class-names
+# more info of special methods : https://docs.python.org/3/reference/datamodel.html#notes-on-using-slots
+
 class HumanNature:
     """
     Docstrings
     """
-    def __init__(self, height , weight):
+    def __init__(self, height, weight):
         self.nheight = height
         self.weight = weight
+        self.name = None
+    def get_height(self):
+        return self.nheight
+    def get_weight(self):
+        return self.weight    
+    def get_name(self):
+        return self.name
+    def set_height(self, newheight):
+        self.nheight = newheight
+    def set_weight(self, newweight):
+        self.weight = newweight
+    def set_name(self, newname = ""):
+        self.name = newname
+    def __str__(self):
+        return "human: "+ str(self.name) + ":" +str(self.nheight) + ":" + str(self.weight)
       
