@@ -193,3 +193,49 @@ print(obj.y())
 >>> C.y
 # If switch the order to class D(B, C): the answer would be B.y, it means that when you are call a method it would read through 
 # obj.y was NOT defined as part of the init process so unlike a, it will have to be found by inheritance. So, left to right depth first. Look at C. Found it. Stop.
+
+#Extended example
+
+# if you don't define the following code __lt__(self, other) then the built-in function sort() can't work. (if you want to sort increasingly, use __gt__)
+
+# -*- coding: utf-8 -*-
+"""
+Created on Wed May 18 07:51:28 2016
+
+@author: ericgrimson
+"""
+
+import datetime
+
+class Person(object):
+    def __init__(self, name):
+        """create a person called name"""
+        self.name = name
+        self.lastName = name.split(' ')[-1]
+
+    def getLastName(self):
+        """return self's last name"""
+        return self.lastName
+  
+    def __lt__(self, other):
+        """return True if self's name is lexicographically
+           less than other's name, and False otherwise"""
+        if self.lastName == other.lastName:
+            return self.name < other.name
+        return self.lastName < other.lastName
+# example usage
+
+p1 = Person('Mark Zuckerberg')
+p1.setBirthday(5,14,84)
+p2 = Person('Drew Houston')
+p2.setBirthday(3,4,83)
+p3 = Person('Bill Gates')
+p3.setBirthday(10,28,55)
+p4 = Person('Travis Kalanik')
+p5 = Person('Steve Wozniak')
+
+
+personList = [p1, p2, p3, p4, p5]
+   
+personList.sort()
+
