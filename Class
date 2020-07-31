@@ -4,11 +4,13 @@
 # """ Docstrings """ : Describe how to use this class
 # __init__(self,attr1,attr2....) :  is a reserved method in python classes. It is known as a constructor in object oriented concepts. This method called when an object is created from the class and it allow the class to initialize the attributes of a class.
 # self : self represents the instance of the class. By using the "self" keyword we can access the attributes and methods of the class in python.
-# self.nheight = height : actually, it can be written as "self.height = height", the nheight is just a name of this attribute, you can name it self.height as well.
+# self.nheight = height : this is instance variable actually, it can be written as "self.height = height", the nheight is just a name of this attribute, you can name it self.height as well.
+# class variable within rabbit subclass, "tag", this would create different unique tag every time you create a new instance.
 # get session : means you can get the input data
 # set seesion : means you can change the input data
 # __str__(self) : it's a dunder method or special methods, which means that you can apply certain the built-in function in your class. If you don't use this you can't print out the instance as you might imagine.
 # Human(Animal) : Animal is the parent class/ superclass and Human Cat are  subclasses/child classes.Those subclasses all inherit the behaviors and data of the parents unless we explicitly override them.
+
 
 # naming reference : https://www.python.org/dev/peps/pep-0008/#class-names
 # more info of special methods : https://docs.python.org/3/reference/datamodel.html#notes-on-using-slots
@@ -40,10 +42,41 @@ class Cat(Animal):
     """
     Docstrings
     """
+    tag = 1
+    def __init__(self,height,weight,parent1=None,parent2=None):
+        Animal.__init__(self,height,weight)
+        self.parent1 = parent1
+        self.parent2 = parent2
+        if type(self.parent1) == Cat:
+          self.parent1 = parent1
+        else:
+          self.parent1 = None
+        if type(self.parent2) == Cat:
+          self.parent2 = parent2 
+        else:
+          self.parent2 = None 
+        self.rid = Cat.tag
+        Cat.tag += 1
+    def get_rid(self):
+        return str(self.rid).zfill(3)
+        # zfill(3) can create a three digit id such as 001 rather than just 1.
+    def get_parent1(self):
+        return self.parent1
+    def get_parent2(self):
+        return self.parent2
+    def __add__(self, other):
+        # returning object of same type as this class
+        return Cat(0, 0, self, other)
     def speak(self):
         return 'Meow! '
     def __str__(self):
-        return 'Cat : {} is {} cm and {} kg'.format(self.name, self.nheight, self.weight)        
+        return 'Cat : {} is {} cm and {} kg'.format(self.name, self.nheight, self.weight)
+    def __eq__(self, other):
+        parents_same = self.parent1.rid == other.parent1.rid \
+                       and self.parent2.rid == other.parent2.rid
+        parents_opposite = self.parent2.rid == other.parent1.rid \
+                       and self.parent1.rid == other.parent2.rid
+        return parents_same or parents_opposite  
 class Human(Animal):
     """
     Docstrings
@@ -86,11 +119,30 @@ print(Animal.__str__(angelina))
 bubble = Cat(50,18)
 bubble.speak()
 >>>Meow!
-angela.speak()
+angelina.speak()
 >>>I'm a human and I'm so pretty! 
 john = Animal(50,18)
 john.speak()
 >>> error
+
+# Cat part
+diamond = Cat(50,50)
+diamond.set_name("Diamond")
+
+kitten = Cat(45,30)
+kitten.set_name("Kitten")
+
+bubble = Cat(50,18,kitten,diamond)
+purple = kitten + diamond
+purple.set_name("purple")
+bubble.set_name("Bubble")
+print(bubble.get_parent1())
+print(purple.get_parent1())
+print(purple.get_parent2())
+print(diamond.get_rid())
+print(purple == bubble)
+
+
 
 #different subclass use the same name of the method but would have different result.
 The higher hierarchy of class can't access the method or attribute of the lower class.
