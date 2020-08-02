@@ -1,0 +1,17 @@
+def program1(L):
+    multiples = []
+    for x in L:
+        for y in L:
+            multiples.append(x*y)
+    return multiples
+
+# What is the number of steps it will take to run Program 1 in the worst case? Express your answer in terms of n, the number of elements in the list L. You can assume list appending takes 1 step.
+# 1+n+n*3n+1
+# 1 : multiples = []
+# n : execute an assignment of a value to x
+# n*3n : n  : it will take n times to complete the for y inner loop.
+         3n : 1n : execute an assginment of a value to y
+              1n : x*y
+              1n : list appending
+# 1 : return multiples
+  
