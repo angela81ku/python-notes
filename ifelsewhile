@@ -1,0 +1,14 @@
+Python Logical Operators
+a = True
+b = False
+c = True
+a and b
+>>> False
+a or b 
+>>> True
+not(a and c)
+>>> False
+
+False : 0, [], "",()
+True : -1,[0],
+
