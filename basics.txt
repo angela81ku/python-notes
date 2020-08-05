@@ -26,6 +26,35 @@ print("鄭小勳","21","100",sep="\t")
 王小明		20		40
 鄭小勳		21		100
 
+end practice 
+print the calculation result
+
+num = int(input())
+sum = 0
+for i in range(num):
+  sum += i+1
+  print(i+1, end='')
+  if i != (num-1):
+    print(end="+")
+else:
+  print(' =',factor_p)
+
+#or
+num = int(input())
+sum = 1
+print(sum,end='')
+for i in range(2,num+1):
+  sum += i
+  print("+",i,end='',sep="")
+
+else:
+  print(' =',factor_p)
+
+>>>Result:
+input : 4
+1+2+3+4 = 10
+
+
 #  Input 輸入提示
 objectname=int(input(“Please input your name: ”))
 “Please input your name: ” This is a prompt for the user.
