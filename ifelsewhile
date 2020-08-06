@@ -45,3 +45,71 @@ for i in range(1,10,2):
 5 6 5
 7 8 3
 9 10 1
+
+
+#flag
+python don't need to use that because we can use break to replace it.
+
+st = [1,2,3,4,5,8,9,65,43]
+qnum = int(input())#7
+flag = True
+for i in range(len(st)):
+  if qnum == st[i]:
+    print("found", st[i], "@”, i)
+    flag = False
+  else:
+    print("not found")
+
+#python way
+st = [1,2,3,4,5,8,9,65,43]
+qnum = int(input())#7
+for i in range(len(st)):
+  if qnum == st[i]:
+    print("found", st[i], "@”, i)
+    break
+  else:
+    print("not found")
+    
+# continue
+The continue statement in Python returns the control to the beginning of the while loop. 
+The continue statement rejects all the remaining statements in the current iteration of the loop and moves the control back to the top of the loop.
+for example : print number without 3 in 1-100
+
+i=0 
+for i in range(101):
+  if(i%3==0 or 30<=i<40 or i%10 == 3):
+    continue
+  print(i)
+  
+#for example guess number game
+
+Min = 1
+Max = 100
+import random
+ans = random.randint(Min,Max)
+while True:
+    print(Min,'< ? <',Max)
+    keyin = int(input())
+
+    if not Min< keyin< Max:
+        print('out of range')
+        continue
+    if keyin > ans:
+        Max = keyin
+        print(Min,'< ? <',Max)
+    elif keyin<ans:
+        Min = keyin
+        print(Min,'< ? <',Max)
+    else:
+        print('bingo answer is',ans)
+        break
+
+# nested loop
+please do not use the same variable in the outer and inner loop.
+print a matrix of x row and y column *
+x = int(input())
+y = int(input())
+for i in range(x):
+  for j in range(y):
+    print('*',end=" ")
+  print()
