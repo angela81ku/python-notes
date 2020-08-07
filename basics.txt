@@ -54,6 +54,16 @@ else:
 input : 4
 1+2+3+4 = 10
 
+#字串的乘法:
+
+print("*"*5)
+>>>
+*****
+
+for i in range(5):
+  print("*"*i)
+>>>
+這樣就可以印出銳角三角形了
 
 #  Input 輸入提示
 objectname=int(input(“Please input your name: ”))
