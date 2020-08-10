@@ -26,3 +26,21 @@ input2: 8
 # str
 #type some object and "." then you can call the method and press tab/enter (depends on the interpreter)
 'apple'.upper()
+
+#3020 make the user try the input till it input an integer
+while True:
+  n = input()
+  if n.isdigit():
+    print('n=%s'%(n))
+    break
+  else:
+    print("is not a number") 
+ 
+ or 
+ 
+n = input()   
+while not n.isdigit() :
+  print("is not a number") 
+  n = input()
+else:
+  print('n=%s'%(n))
