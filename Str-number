@@ -44,3 +44,34 @@ while not n.isdigit() :
   n = input()
 else:
   print('n=%s'%(n))
+  
+#find word location in chinese poem:
+
+longhate = """漢皇重色思傾國，御宇多年求不得。
+
+楊家有女初長成，養在深閏人未識。
+
+天生麗質難自棄，一朝選在君王側。
+
+回眸一笑百媚生，六宮粉黛無顏色。
+
+春寒賜浴華清池，溫泉水滑洗凝脂；
+
+侍兒扶起嬌無力，始是新承恩澤時。
+
+雲鬢花顏金步搖，芙蓉帳暖度春宵；
+
+春宵苦短日高起，從此君王不早朝。
+
+承歡侍宴無閑暇，春從春遊夜專夜。
+
+"""
+#longde = longhate.replace("，","").replace("：","").replace("「","").replace("」","").replace("。","").replace("\n","").replace(" ","").replace("；","").replace("？","")
+for s2 in ',:「」。\n； ？':
+  longde = longhate.replace(s2,"")
+s1 = input()
+index1 = longde.find(s1)
+print(longde.count(s1))
+while index1 != -1:
+  print(index1)
+  index1 = longde.find(s1,index1+1)
