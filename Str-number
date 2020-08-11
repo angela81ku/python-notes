@@ -68,7 +68,7 @@ longhate = """漢皇重色思傾國，御宇多年求不得。
 """
 #longde = longhate.replace("，","").replace("：","").replace("「","").replace("」","").replace("。","").replace("\n","").replace(" ","").replace("；","").replace("？","")
 for s2 in ',:「」。\n； ？':
-  longde = longhate.replace(s2,"")
+  longhate = longhate.replace(s2,"")
 s1 = input()
 index1 = longde.find(s1)
 print(longde.count(s1))
